@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TodoForm() {
-	const [toDoList, setToDoList] = useState([			
+	const [toDoList, setToDoList] = useState([
 		"Clean apartment",
 		"Walk my dog",
 		"Cook"
