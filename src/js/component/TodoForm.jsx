@@ -11,9 +11,6 @@ function TodoForm() {
 	// State para tomar la información que ingresa el usuario
 	const [userInput, setUserInput] = useState([]);
 
-	// State para ocultar o mostrar el botón de cerrar
-	const [displayClose, setDisplayClose] = useState("notdisplayed");
-
 	const inputHandler = e => {
 		//Handler que ejecuta acción si se presiona enter//
 		if (e.keyCode === 13) {
