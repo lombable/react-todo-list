@@ -1,15 +1,15 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-.notdisplayed {
-    display: none;
-}
-
 .displayed {
-    margin: auto;
+    display: none;
 }
 
 span {
     display: flex;
     margin: auto;
     float: right;
+}
+
+li:hover > .displayed{
+    display: flex;
 }

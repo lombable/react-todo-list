@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 
 // todo list
 function TodoForm() {
-	const mySpan = useRef("");
 	const [toDoList, setToDoList] = useState([
 		"Clean apartment",
 		"Walk my dog",
@@ -22,16 +21,6 @@ function TodoForm() {
 		}
 	};
 
-	//Mostrar el botón
-	const showClose = e => {
-		mySpan.current.className = "displayed";
-	};
-
-	// Ocultar el botón
-	const hideClose = e => {
-		mySpan.current.className = "notdisplayed";
-	};
-
 	return (
 		<div className="container pt-5">
 			<input
@@ -40,7 +29,7 @@ function TodoForm() {
 				placeholder="What needs to be done?"
 				aria-label=".form-control-lg example"
 				value={userInput}
-				onKeyDown={inputHandler}
+				onKeyDown={e => inputHandler(e)}
 				onChange={e => {
 					setUserInput(e.target.value);
 				}}
@@ -49,13 +38,9 @@ function TodoForm() {
 			<ul className="list-group">
 				{toDoList.map((task, i) => {
 					return (
-						<li
-							className="list-group-item"
-							key={i}
-							onMouseEnter={e => showClose(e)}
-							onMouseLeave={e => hideClose(e)}>
+						<li className="list-group-item ocultate" key={i}>
 							{task}
-							<span ref={mySpan} className="notdisplayed">
+							<span id={i} className="displayed">
 								<i className="fas fa-times float-right"></i>
 							</span>
 						</li>
