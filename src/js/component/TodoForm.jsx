@@ -18,7 +18,12 @@ function TodoForm() {
 		//Handler que ejecuta acción si se presiona enter//
 		if (e.keyCode === 13) {
 			setToDoList(toDoList => [...toDoList, userInput]);
+			setUserInput("");
 		}
+	};
+
+	const handleClick = i => {
+		setToDoList(toDoList.filter(item => item !== toDoList[i]));
 	};
 
 	return (
@@ -41,7 +46,9 @@ function TodoForm() {
 						<li className="list-group-item ocultate" key={i}>
 							{task}
 							<span id={i} className="displayed">
-								<i className="fas fa-times float-right"></i>
+								<i
+									className="fas fa-times float-right"
+									onClick={() => handleClick(i)}></i>
 							</span>
 						</li>
 					);
